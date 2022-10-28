@@ -12,7 +12,7 @@ function PokemonCard({ url, name, pokemonFilteredList }) {
     const res = await fetch(url);
     const data = await res.json();
     setPokemon(data);
-    // console.log(pokemon)
+    console.log(pokemon)
   };
 
   useEffect(() => {
@@ -22,12 +22,12 @@ function PokemonCard({ url, name, pokemonFilteredList }) {
   return (
     <>
       {pokemon ? (
-        <Card className="w-100">
+        <Card className="w-100 h-100 indiv-card"  >
           <Card.Img src={`${pokemon.sprites.front_default}`}></Card.Img>
           <Card.Body>
             <Card.Title >      
               <Link to={`/${name}`} style={{color: "black"}}>
-                {name}
+                {name.charAt(0).toUpperCase() + name.slice(1)}
               </Link>
               {/* {pokemon.name} */}
             </Card.Title>

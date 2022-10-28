@@ -6,3 +6,23 @@ body {
 h1 {
   font-weight: 800 !important;
 }
+
+.indiv-card {
+  transition: all 0.5s ease;
+  background-color: rgba(242, 244, 244, 0.431);
+}
+
+.indiv-card:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.loading {
+  /* font-size: larger; */
+  text-align: center;
+}
+
+/* .single-view {
+  background-color: rgba(242, 244, 244, 0.431);
+
+} */

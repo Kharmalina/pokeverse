@@ -9,8 +9,6 @@ import Col from "react-bootstrap/Col";
 
 function Home({pokemonList, pokemonFilteredList, setPokemonFilteredList}) {
 
-//   const [pokemonFilteredList, setPokemonFilteredList] = useState([]);
-
   function handleChange(e) {
     const value = e.target.value;
     const regex = new RegExp(value, 'gi');
@@ -18,6 +16,7 @@ function Home({pokemonList, pokemonFilteredList, setPokemonFilteredList}) {
       return pokemon.name.match(regex);
     });
     setPokemonFilteredList(filtered);
+    // console.log(pokemonFilteredList)
   }
 
   return (
@@ -34,7 +33,7 @@ function Home({pokemonList, pokemonFilteredList, setPokemonFilteredList}) {
       <Container>
         <Row md={4}>
           {pokemonFilteredList.map((pokemon, idx) => (
-            <Col key={idx} className="mt-4" md="3">
+            <Col key={idx} className="mt-4" md="3" >
               <PokemonCard
                 pokemonFilteredList={pokemonFilteredList}
                 key={idx}
