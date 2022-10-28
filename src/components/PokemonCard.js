@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+
 
 function PokemonCard({ url, name, pokemonFilteredList }) {
 
@@ -10,7 +12,7 @@ function PokemonCard({ url, name, pokemonFilteredList }) {
     const res = await fetch(url);
     const data = await res.json();
     setPokemon(data);
-    console.log(pokemon)
+    // console.log(pokemon)
   };
 
   useEffect(() => {
@@ -23,7 +25,12 @@ function PokemonCard({ url, name, pokemonFilteredList }) {
         <Card className="w-100">
           <Card.Img src={`${pokemon.sprites.front_default}`}></Card.Img>
           <Card.Body>
-            <Card.Title>{pokemon.name}</Card.Title>
+            <Card.Title >      
+              <Link to={`/${name}`} style={{color: "black"}}>
+                {name}
+              </Link>
+              {/* {pokemon.name} */}
+            </Card.Title>
             <Card.Text as={"div"}>
               <ul>
                 {pokemon.abilities.map((pokemonAbility, idx) => (
