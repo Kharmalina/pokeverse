@@ -14,7 +14,7 @@ function PokemonDetails() {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`);
     const data = await res.json();
     setPokemon(data);
-    // console.log(pokemon);
+    console.log(pokemon);
     // console.log(typeof cards);
   }
     fetchSinglePokemon()
