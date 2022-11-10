@@ -10,16 +10,18 @@ import { FavoritesContext } from '../components/FavoritesProvider';
 function Favorites() {
 
   const { favorites } = useContext(FavoritesContext);
+  console.log(favorites)
 
     return (
         <>
                 <Container>
                     <Row md={4}>
-                      {favorites.map((fav, idx) => (
-                        <Col key={idx} className="mt-4" md="3" >
+                      {favorites.map(fav => (
+                        <Col key={fav.name} className="mt-4" md="3" >
                           <PokemonCard
-                            key={idx}
+                            key={fav.name}
                             name={fav.name}
+                            url={fav.url}
                           />
                         </Col>
                       ))}

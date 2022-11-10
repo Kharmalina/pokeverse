@@ -8,7 +8,7 @@ import { FavoritesContext } from './FavoritesProvider';
 
 function PokemonCard({ url, name, pokemonFilteredList }) {
 
-  const { addFavorite } = useContext(FavoritesContext);
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
 
   const [pokemon, setPokemon] = useState(null);
 
@@ -42,9 +42,15 @@ function PokemonCard({ url, name, pokemonFilteredList }) {
                 ))}
               </ul>
             </Card.Text>
-            <Button variant="primary" onClick={() => addFavorite(pokemon)}>
+            {isFavorite(name) ? (
+            <Button onClick={() => removeFavorite(name)} variant="danger">
+              Remove from Favorites
+            </Button>
+          ) : (
+            <Button onClick={() => addFavorite({ name, url })}>
               Add to Favorites
             </Button>
+          )}
           </Card.Body>
         </Card>
       ) : (

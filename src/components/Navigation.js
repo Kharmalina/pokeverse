@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import squirtle from '../../public/squirtle.png';
 
+import { Link } from 'react-router-dom'
+
 function Navigation() {
   return (
     <Navbar sticky='top' bg='secondary' variant='dark' className="mb-4">
@@ -14,14 +16,17 @@ function Navigation() {
           Pokeverse
         </Navbar.Brand>
         <Nav className='me-auto'>
-          <Nav.Link href='/'>All Pokemon</Nav.Link>
-          <Nav.Link href='/favorites'>My Deck</Nav.Link>
+          <Nav.Link as={Link} to='/'>All Pokemon</Nav.Link>
+          <Nav.Link  as={Link} to='/favorites'>My Deck</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
   );
 }
 
+// <Nav.Link href='/'>All Pokemon</Nav.Link> this will refresh the page
+
+ 
 export { Navigation };
 
 // Nav.Link will refresh the page to head back to Home.js ("/")

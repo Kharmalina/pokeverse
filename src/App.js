@@ -33,16 +33,16 @@ function App() {
 
   return (
     <FavoritesProvider>
-      <div data-testid="app">
-        <Navigation />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home pokemonList={pokemonList} pokemonFilteredList={pokemonFilteredList} setPokemonFilteredList={setPokemonFilteredList}/>} />
-            <Route path="/:name" element={<PokemonDetails />} />
-            <Route path="/favorites" element={<Favorites />} />
-          </Routes>
+          <div data-testid="app">
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<Home pokemonList={pokemonList} pokemonFilteredList={pokemonFilteredList} setPokemonFilteredList={setPokemonFilteredList}/>} />
+              <Route path="/:name" element={<PokemonDetails />} />
+              <Route path="/favorites" element={<Favorites />} />
+            </Routes>
+          </div>
         </BrowserRouter>
-      </div>
     </FavoritesProvider>
 
   );

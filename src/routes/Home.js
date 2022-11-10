@@ -23,7 +23,7 @@ function Home({pokemonList, pokemonFilteredList, setPokemonFilteredList}) {
     <div data-testid="app">
         {/* <h2 className='text-center'>Start Searching to select a Pokemon!</h2> */}
       <InputGroup onChange={handleChange} className="mb-3 w-50 mx-auto">
-      <InputGroup.Text id="basic-addon1">Search</InputGroup.Text>
+      <InputGroup.Text id="basic-addon1">Search Pokemon Name:</InputGroup.Text>
         <Form.Control
           placeholder="Search"
           aria-label="search"
