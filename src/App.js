@@ -5,6 +5,10 @@ import { PokemonDetails } from './routes/PokemonDetails';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { FavoritesProvider } from './components/FavoritesProvider';
+
+import { Favorites } from './routes/Favorites';
+
 const LIMIT = 150;
 const pokeApi = `https://pokeapi.co/api/v2/pokemon/?limit=${LIMIT}`;
 
@@ -28,15 +32,19 @@ function App() {
   }, []);
 
   return (
-    <div data-testid="app">
-      <Navigation />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home pokemonList={pokemonList} pokemonFilteredList={pokemonFilteredList} setPokemonFilteredList={setPokemonFilteredList}/>} />
-          <Route path="/:name" element={<PokemonDetails />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <FavoritesProvider>
+        <BrowserRouter>
+          <div data-testid="app">
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<Home pokemonList={pokemonList} pokemonFilteredList={pokemonFilteredList} setPokemonFilteredList={setPokemonFilteredList}/>} />
+              <Route path="/:name" element={<PokemonDetails />} />
+              <Route path="/favorites" element={<Favorites />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+    </FavoritesProvider>
+
   );
 }
 
